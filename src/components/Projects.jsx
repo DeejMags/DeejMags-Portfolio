@@ -10,7 +10,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="section">
-      <p className="section__label">02 &mdash; projects</p>
+      <p className="section__label">03 &mdash; projects</p>
       <div className="projects__list">
         {projects.map((project) => (
           <article key={project.name} className="project-card">

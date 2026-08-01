@@ -1,28 +1,18 @@
+import { Link } from 'react-router-dom'
 import { useTheme } from '../hooks/useTheme.js'
 import EmailButton from './EmailButton.jsx'
 
 const navLinks = [
-  { href: '#about', label: 'about' },
-  { href: '#projects', label: 'projects' },
-  { href: '#contact', label: 'contact' },
+  { href: '/#about', label: 'about' },
+  { href: '/#experience', label: 'experience' },
+  { href: '/#projects', label: 'projects' },
+  { href: '/#contact', label: 'contact' },
 ]
 
-const stack = ['HTML', 'CSS', 'JavaScript', 'Laravel', 'SQL', 'Firebase', 'React', 'Figma', 'Git & GitHub', 'Vercel', 'VS Code']
-
-const skills = [
-  'HTML & CSS for front-end web development',
-  'Figma',
-  'Git & GitHub',
-  'Time management',
-  'Verbal & interpersonal communication',
-]
-
-const hobbies = [
-  'Gaming',
-  'Basketball',
-  'Watching movies',
-  'Cooking',
-  'Traveling (soon)',
+const pageLinks = [
+  { to: '/stack', label: 'stack' },
+  { to: '/skills', label: 'skills' },
+  { to: '/hobbies', label: 'hobbies' },
 ]
 
 export default function Sidebar() {
@@ -43,13 +33,13 @@ export default function Sidebar() {
       </div>
 
       <h1 className="sidebar__name">
-        <a href="#top">Rodrigo N. Maglatang Jr.</a>
+        <Link to="/">Rodrigo N. Maglatang Jr.</Link>
       </h1>
       <p className="sidebar__title">BS Information Technology &mdash; Web Technology Track</p>
 
       <nav className="sidebar__nav">
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href}>{link.label}</a>
+          <Link key={link.href} to={link.href}>{link.label}</Link>
         ))}
       </nav>
 
@@ -59,31 +49,13 @@ export default function Sidebar() {
       </div>
 
       <div className="sidebar__scroll">
-        <div className="sidebar__block">
-          <p className="sidebar__label">stack</p>
-          <ul className="sidebar__list">
-            {stack.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="sidebar__block">
-          <p className="sidebar__label">skills</p>
-          <ul className="sidebar__list">
-            {skills.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="sidebar__block">
-          <p className="sidebar__label">hobbies</p>
-          <ul className="sidebar__list">
-            {hobbies.map((hobby) => (
-              <li key={hobby}>{hobby}</li>
-            ))}
-          </ul>
+        <p className="sidebar__label">explore</p>
+        <div className="sidebar__page-links">
+          {pageLinks.map((link) => (
+            <Link key={link.to} to={link.to} className="sidebar__page-link">
+              {link.label} <span aria-hidden="true">&rarr;</span>
+            </Link>
+          ))}
         </div>
       </div>
     </aside>

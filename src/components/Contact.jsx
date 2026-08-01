@@ -3,7 +3,7 @@ import EmailButton from './EmailButton.jsx'
 export default function Contact() {
   return (
     <section id="contact" className="section">
-      <p className="section__label">03 &mdash; contact</p>
+      <p className="section__label">04 &mdash; contact</p>
       <p>
         Email: <EmailButton />
       </p>
