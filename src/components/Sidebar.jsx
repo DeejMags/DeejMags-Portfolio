@@ -33,11 +33,12 @@ export default function Sidebar() {
       <div className="sidebar__top">
         <button
           type="button"
-          className="theme-toggle"
+          className={`theme-toggle${theme === 'dark' ? ' theme-toggle--dark' : ''}`}
           onClick={toggleTheme}
           aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
         >
-          {theme === 'dark' ? '☀' : '☾'}
+          <span className="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+          <span className="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
         </button>
       </div>
 
